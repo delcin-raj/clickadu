@@ -7,12 +7,11 @@
             {{-- Include your logo here --}}
         </a>
         <div class="hidden md:flex space-x-4">
-            {{-- Navigation Links --}}
             <a href="/advertiser" class="text-gray-700 hover:text-gray-900">Advertiser</a>
             <a href="/publisher" class="text-gray-700 hover:text-gray-900">Publisher</a>
             <a href="/ssp" class="text-gray-700 hover:text-gray-900">SSP</a>
-            <a href="/media-kit" class="text-gray-700 hover:text-gray-900">Media Kit</a>
-            <a href="/blog" class="text-gray-700 hover:text-gray-900">Blog</a>
+            <a href="/media_kit" class="text-gray-700 hover:text-gray-900">Media Kit</a>
+            <a href="/blogs)" class="text-gray-700 hover:text-gray-900">Blog</a>
             <a href="/contacts" class="text-gray-700 hover:text-gray-900">Contacts</a>
             <a href="/faq" class="text-gray-700 hover:text-gray-900">FAQ</a>
         </div>
@@ -25,8 +24,10 @@
                     {{-- Add other language options here --}}
                 </select>
             </div>
-            <a href="/register" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Register
+            <a href="/register">
+                <button class="bg-orange-500 hover:bg-white hover:text-orange-500 text-white font-bold py-2 px-4 rounded shadow-md hover:shadow-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-opacity-50 border border-orange-500 hover:border-orange-600 focus:border-orange-700">
+                    Register
+                </button>
             </a>
             <a href="/login" class="text-blue-500 hover:bg-blue-100 font-bold py-2 px-4 rounded">
                 Sign In

@@ -3,17 +3,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Other head content like meta tags, main stylesheet, etc. -->
-
-    <!-- Stack for additional page-specific styles -->
     @stack('styles')
 </head>
 <body>
-    <!-- Your layout structure -->
 
     @include('includes.header')
-
-    <!-- Your layout structure continues -->
 
     <div class="relative">
         <!-- Background image -->
