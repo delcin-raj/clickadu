@@ -1,5 +1,6 @@
 {{-- resources/views/components/header.blade.php --}}
-@vite('resources/css/app.css')
+@vite(['resources/css/app.css','resources/js/app.js'])
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 <header class="bg-gray-100">
     <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
         <a href="/" class="flex items-center">
@@ -29,10 +30,27 @@
                     Register
                 </button>
             </a>
-            <a href="/login" class="text-blue-500 hover:bg-blue-100 font-bold py-2 px-4 rounded">
-                Sign In
-            </a>
+
+
+            <div class="relative group">
+                <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="bg-orange-500 text-white px-4 py-2 rounded shadow hover:bg-white hover:text-orange-500 focus:outline-none">
+                    SIGN IN
+                </button>
+
+                <!-- Dropdown Menu -->
+                <div id="dropdownHover" class="z-10 hidden mt-1 w-40 rounded-md shadow-lg bg-white">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                        <li>
+                            <a href="/publisher" class="block px-4 py-2 text-sm text-orange-500 hover:bg-orange-500 hover:text-white">Publisher</a>
+                        </li>
+                        <li>
+                            <a href="{{ route("advertiser.login") }}" class="block px-4 py-2 text-sm text-orange-500 hover:bg-orange-500 hover:text-white">Advertiser</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+
         <div class="md:hidden">
             {{-- Mobile menu button --}}
             <button @click="open = !open" class="text-gray-500 focus:outline-none">

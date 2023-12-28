@@ -41,3 +41,30 @@ Route::get('media_kit', function() {
 Route::get('login', function() {
     return view('login');
 })->name('login');
+
+// Advertiser routes
+Route::get('advertiser/login', function() {
+    return view('advertiser/login');
+})->name('advertiser.login');
+Route::get('advertiser/dashboard', function(){
+    return view('advertiser/dashboard');
+})->name('advertiser.dashboard');
+Route::get('advertiser/campaigns', function(){
+    return view('advertiser/campaigns');
+})->name('advertiser.campaigns');
+Route::get('advertiser/profile', function(){
+    return view('advertiser/profile');
+})->name('advertiser.profile');
+Route::get('advertiser/help', function(){
+    return view('advertiser/help');
+})->name('advertiser.help');
+Route::get('advertiser/inventory', function(){
+    return view('advertiser/inventory');
+})->name('advertiser.inventory');
+
+Route::get('advertiser/add_funds', function(){
+    return view('advertiser/add_funds');
+})->name('advertiser.add_funds');
+Route::get('advertiser/finance', function(){
+    return view('advertiser/finance');
+})->name('advertiser.finance');
