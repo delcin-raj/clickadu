@@ -20,9 +20,9 @@
     <div class="flex-1">
         <h1 class="text-xl font-semibold">Campaigns</h1>
         <div class="flex justify-between items-center space-x-4 bg-white p-4 shadow">
-            <div>
+            <div class="flex space-x-4">
                 <div class="space-y-4">
-                    <div class="flex">
+                    <div class="flex space-x-2">
                         <button class="bg-gray-300">
                             <img src="{{asset('images/icons/reload.svg')}}" class="w-8 h-8 text-gray-500" alt="">
                         </button>
@@ -33,6 +33,7 @@
                             </svg>
                             <input type="text" placeholder="ID/Name" class="border rounded py-2 px-4">
                         </div>
+                        <button class="bg-gray-300 rounded-full px-4 py-2">Set</button>
                     </div>
                     <div>
                         <button class="bg-gray-300">
@@ -51,10 +52,9 @@
                     </div>
 
                 </div>
-                <button class="bg-gray-300">Set</button>
 
             </div>
-            <div class="flex">
+            <div class="flex space-x-2">
                 <!-- Dropdown Filters -->
                 <div class="flex items-center space-x-2">
                     <div>
@@ -64,8 +64,6 @@
                             <!-- Other options here -->
                         </select>
                     </div>
-
-                    <!-- Add more dropdowns for 'Origin', 'Archived', 'Ad Format', 'Price Model' -->
 
                 </div>
 
