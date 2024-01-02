@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Gotenberg\Gotenberg;
+use Gotenberg\Stream;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,19 @@ Route::get('login', function() {
     return view('login');
 })->name('login');
 
+
+Route::get('invoice', function() {
+    $html = view('invoice_pdf')->render(); // 'your.view' is the name of your Blade template
+    $request = Gotenberg::chromium('http://127.0.0.1:3000')
+        ->url("http://host.docker.internal:8000/invoice/view");
+    $response = Gotenberg::send($request);
+    return $response;
+})->name('invoice');
+
+Route::get('invoice/view', function() {
+    return view('invoice_pdf', ['logo' => asset('images/logopdf.png'), 'stamp' => asset('images/stamp.png')]);
+})->name('invoice.view');
+
 // Advertiser routes
 Route::get('advertiser/login', function() {
     return view('advertiser/login');
@@ -68,3 +83,6 @@ Route::get('advertiser/add_funds', function(){
 Route::get('advertiser/finance', function(){
     return view('advertiser/finance');
 })->name('advertiser.finance');
+Route::get('advertiser/create_campaign', function(){
+    return view('advertiser/create_campaign');
+})->name('advertiser.create_campaign');

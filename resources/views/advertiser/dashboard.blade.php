@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +39,7 @@
                 <input type="text" id="date2" class="pl-10 pr-4 py-2 border rounded" placeholder="Select date" readonly>
 
                 <!-- 'Set' Button -->
-                <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                <button type="button" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded">
                     Set
                 </button>
             </div>

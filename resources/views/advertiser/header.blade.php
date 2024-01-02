@@ -11,7 +11,9 @@
         <span class="text-2xl font-bold text-center" id="timeTicker">12:00:00</span>
     </div>
     <div>
-        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">Create Campaign</button>
+        <a href="{{route('advertiser.create_campaign')}}">
+            <button class="bg-cyan-500 text-white px-4 py-2 rounded hover:bg-cyan-600 transition-colors">Create Campaign</button>
+        </a>
         <span class="text-gray-600 mr-4">Balance: $238.76</span>
     </div>
 </header>

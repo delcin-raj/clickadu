@@ -39,7 +39,7 @@
                     <p class="text-3xl text-orange-500 font-semibold">3.6M</p>
                     <div class="w-20 mx-auto mt-2">
                         <!-- Include your wavy line SVG or image here -->
-                        <img src="{{ asset('images/home/blue_squiggly.png') }}" alt="Wavy Line">
+                        <img src="{{ asset('images/home/red_squiggly.png') }}" alt="Wavy Line">
                     </div>
                 </div>
             </div>

@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    image: clickadu
+    build:
+      context: . # Your Dockerfile should be in the same directory as docker-compose.yml
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000" # Expose Laravel on port 8000
+    volumes:
+      - .:/var/www/html # Mount your Laravel app code into the container
+
+  gotenberg:
+    image: thecodingmachine/gotenberg:7
+    ports:
+      - "3000:3000" # Expose Gotenberg on port 3000
+
