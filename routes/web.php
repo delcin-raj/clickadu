@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Gotenberg\Gotenberg;
 use Gotenberg\Stream;
+use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FinanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,12 +64,7 @@ Route::get('invoice/view', function() {
 Route::get('advertiser/login', function() {
     return view('advertiser/login');
 })->name('advertiser.login');
-Route::get('advertiser/dashboard', function(){
-    return view('advertiser/dashboard');
-})->name('advertiser.dashboard');
-Route::get('advertiser/campaigns', function(){
-    return view('advertiser/campaigns');
-})->name('advertiser.campaigns');
+
 Route::get('advertiser/profile', function(){
     return view('advertiser/profile');
 })->name('advertiser.profile');
@@ -80,9 +78,13 @@ Route::get('advertiser/inventory', function(){
 Route::get('advertiser/add_funds', function(){
     return view('advertiser/add_funds');
 })->name('advertiser.add_funds');
-Route::get('advertiser/finance', function(){
-    return view('advertiser/finance');
-})->name('advertiser.finance');
-Route::get('advertiser/create_campaign', function(){
-    return view('advertiser/create_campaign');
-})->name('advertiser.create_campaign');
+Route::post('advertiser/add_funds.store', function() {
+    return view('advertiser/add_funds_store');
+})->name('advertiser.add_funds.store');
+
+Route::get('advertiser/dashboard', [DashboardController::class, 'index'])->name('advertiser.dashboard');
+Route::get('advertiser/finance', [FinanceController::class, 'index'])->name('advertiser.finance');
+// Campaign routes
+Route::get('advertiser/create_campaign', [CampaignController::class, 'create'])->name('advertiser.create_campaign');
+Route::post('advertiser/campaign', [CampaignController::class, 'store']);
+Route::get('advertiser/campaigns', [CampaignController::class, 'index'])->name('advertiser.campaigns');

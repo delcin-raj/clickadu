@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +21,8 @@
         <!-- Dashboard Header -->
         <h1 class="text-xl font-semibold">Finance</h1>
         <div class="flex items-center justify-center">
-            <button class="bg-cyan-500 text-white px-4 py-2">Billing History</button>
-            <button class="bg-cyan-500 text-white px-4 py-2">Invoices</button>
+            <button class="bg-cyan-700 text-white px-4 py-2" id="billingHistoryBtn">Billing History</button>
+            <button class="bg-cyan-500 text-white px-4 py-2" id="invoicesBtn">Invoices</button>
         </div>
 
         <main class="p-4 space-y-4">
@@ -80,7 +79,7 @@
 
             <!-- Table -->
             <div class="bg-white p-4 rounded shadow">
-                <table class="min-w-full">
+                <table class="min-w-full" id="history">
                     <thead>
                         <tr>
                             <th class="px-6 py-3 border-b text-right">Date</th>
@@ -91,13 +90,33 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($history as $h)
                         <tr>
-                            <td class="px-6 py-4 border-b text-right">Dec 22, 2023</td>
-                            <td class="px-6 py-4 border-b text-right"></td>
-                            <td class="px-6 py-4 border-b text-right">Prepayment for advertising campaign </td>
-                            <td class="px-6 py-4 border-b text-right">$239.4</td>
+                            <td class="px-6 py-4 border-b text-right">{{ $h->date }}</td>
+                            <td class="px-6 py-4 border-b text-right">{{ $h->description }}</td>
+                            <td class="px-6 py-4 border-b text-right">{{ $h->comment }} </td>
+                            <td class="px-6 py-4 border-b text-right">${{ $h->net_balance }}</td>
                             <td class="px-6 py-4 border-b text-right"><a href="{{ route('invoice') }}" class="btn btn-primary bg-cyan-500 text-white">PDF</a></td>
                         </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <table class="min-w-full" id="invoice" hidden>
+                    <thead>
+                        <tr>
+                            <th class="px-6 py-3 border-b text-right">Date</th>
+                            <th class="px-6 py-3 border-b text-right">Amount</th>
+                            <th class="px-6 py-3 border-b text-right">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($invoice as $h)
+                        <tr>
+                            <td class="px-6 py-4 border-b text-right">{{ $h->date }}</td>
+                            <td class="px-6 py-4 border-b text-right">{{ $h->amount }}</td>
+                            <td class="px-6 py-4 border-b text-right"><a href="{{ route('invoice') }}" class="btn btn-primary bg-cyan-500 text-white">{{ $h->description }}</a></td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -128,6 +147,28 @@
                 });
             });
         });
+        // Get the buttons
+        const billingBtn = document.getElementById('billingHistoryBtn');
+        const invoicesBtn = document.getElementById('invoicesBtn');
+        const history = document.getElementById('history');
+        const invoice = document.getElementById('invoice');
+
+        // Function to toggle the button color
+        function toggleButtonColor(clickedBtn, otherBtn, show, hide) {
+            clickedBtn.classList.add('bg-cyan-700');
+            clickedBtn.classList.remove('bg-cyan-500');
+
+            otherBtn.classList.add('bg-cyan-500');
+            otherBtn.classList.remove('bg-cyan-700');
+
+            show.hidden = false;
+            hide.hidden = true;
+        }
+
+        // Event listeners
+        billingBtn.addEventListener('click', () => toggleButtonColor(billingBtn, invoicesBtn, history, invoice));
+        invoicesBtn.addEventListener('click', () => toggleButtonColor(invoicesBtn, billingBtn, invoice, history));
+
     </script>
 
 </body>

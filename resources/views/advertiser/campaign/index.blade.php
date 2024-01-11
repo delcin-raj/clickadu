@@ -153,6 +153,34 @@
         </div>
 
         <main class="p-4 space-y-4">
+            <div class="bg-white p-4 rounded shadow">
+                <table class="min-w-full">
+                    <thead>
+                        <tr>
+                            <th class="text-right">id</th>
+                            <th class="text-right">name</th>
+                            <th class="text-right">format</th>
+                            <th class="text-right">size</th>
+                            <th class="text-right">feed</th>
+                            <th class="text-right">vertical</th>
+                            <th class="text-right">status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($campaigns as $campaign)
+                        <tr>
+                            <td class="text-right">{{ $campaign->id }}</td>
+                            <td class="text-right">{{ $campaign->name }}</td>
+                            <td class="text-right">{{ $campaign->format }}</td>
+                            <td class="text-right">{{ $campaign->size }}</td>
+                            <td class="text-right">{{ $campaign->feed }}</td>
+                            <td class="text-right">{{ $campaign->vertical }}</td>
+                            <td class="text-right">{{ $campaign->status }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </main>
     </div>
     </div>

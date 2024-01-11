@@ -73,23 +73,24 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($items as $item)
                         <tr>
-                            <td class="px-6 py-4 border-b text-right">0</td>
-                            <td class="px-6 py-4 border-b text-right">0</td>
-                            <td class="px-6 py-4 border-b text-right">0</td>
-                            <td class="px-6 py-4 border-b text-right">0.0</td>
-                            <td class="px-6 py-4 border-b text-right">0.0</td>
-                            <td class="px-6 py-4 border-b text-right">0.0</td>
-                            <td class="px-6 py-4 border-b text-right">0.0</td>
-                            <td class="px-6 py-4 border-b text-right">0.0</td>
-                            <td class="px-6 py-4 border-b text-right">0.0</td>
-                            {{-- resources/views/components/dropdown.blade.php --}}
+                            <td class="px-6 py-4 border-b text-right">{{ $item->impressions }}</td>
+                            <td class="px-6 py-4 border-b text-right">{{ $item->clicks }}</td>
+                            <td class="px-6 py-4 border-b text-right">{{ $item->conversions }}</td>
+                            <td class="px-6 py-4 border-b text-right">{{ $item->ctr }}</td>
+                            <td class="px-6 py-4 border-b text-right">{{ $item->cr }}</td>
+                            <td class="px-6 py-4 border-b text-right">{{ $item->cpm }}</td>
+                            <td class="px-6 py-4 border-b text-right">{{ $item->cost }}</td>
+                            <td class="px-6 py-4 border-b text-right">{{ $item->cpa }}</td>
+                            <td class="px-6 py-4 border-b text-right">{{ $item->cpc }}</td>
 
                             <td class="text-right">
                                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M19 9l-7 7-7-7"></path></svg>
                             </td>
                             <!-- More data cells -->
                         </tr>
+                        @endforeach
                         <!-- More rows -->
                     </tbody>
                 </table>

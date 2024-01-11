@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     @stack('styles')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     <!-- Flatpickr CSS -->
@@ -17,6 +18,9 @@
     @include('includes.sidebar') {{-- Include your sidebar here --}}
 
     <div class="flex-1">
+        <h1>{{ url('advertiser/campaign') }}</h1>
+    <form method="POST" enctype="multipart/form-data" action="{{ url('advertiser/campaign') }}">
+        @csrf
     <div class="flex">
         <div class="flex-1">
             <h1 class="text-xl font-semibold">Create Campaign</h1>
@@ -72,6 +76,17 @@
                                     <span class="ml-2">All</span>
                                     </label>
                                 </div>
+                            </div>
+                            <div class="block">
+                                <label for="vertical" class="block text-sm font-medium text-gray-500">Vertical</label>
+                                <select id="vertical" class="mt-1 block py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                    <option>Default</option>
+                                    <option>Apk</option>
+                                    <option>Betting</option>
+                                    <option>Gambling</option>
+                                    <option>Datings</option>
+                                    <option>Ecommerce</option>
+                                </select>
                             </div>
 
                             <div class="block">
@@ -468,10 +483,11 @@
             </div>
             <div class="flex justify-between">
                 <button class="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded">Save as Draft</button>
-                <button class="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded">Start Campaign</button>
+                <button class="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded" type="submit">Start Campaign</button>
             </div>
         </div>
     </div>
+    </form>
     </div>
 
     <script>
