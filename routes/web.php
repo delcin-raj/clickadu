@@ -51,7 +51,7 @@ Route::get('login', function() {
 Route::get('invoice', function() {
     $html = view('invoice_pdf')->render(); // 'your.view' is the name of your Blade template
     $request = Gotenberg::chromium('http://127.0.0.1:3000')
-        ->url("http://host.docker.internal:8000/invoice/view");
+        ->url("http://<domain_name:port[80]>/invoice/view");
     $response = Gotenberg::send($request);
     return $response;
 })->name('invoice');
