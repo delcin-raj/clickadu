@@ -14,16 +14,6 @@ class CampaignController extends Controller
 
     public function store(Request $request)
     {
-        echo "DELCIN";
-        Log::error("Store is triggered");
-        $request->validate([
-            'name' => 'required',
-            'format' => 'required',
-            'size' => 'required',
-            'feed' => 'required',
-            'vertical' => 'required',
-        ]);
-
         $campaign = new Campaign();
         $campaign->name = $request->name;
         $campaign->format = $request->format;
@@ -33,7 +23,7 @@ class CampaignController extends Controller
         $campaign->status = "submitted";
         $campaign->save();
 
-        return redirect()->route('advertiser/campaigns');
+        return redirect()->route('advertiser.campaigns');
     }
 
     public function index()

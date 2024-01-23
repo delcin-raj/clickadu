@@ -18,8 +18,7 @@
     @include('includes.sidebar') {{-- Include your sidebar here --}}
 
     <div class="flex-1">
-        <h1>{{ url('advertiser/campaign') }}</h1>
-    <form method="POST" enctype="multipart/form-data" action="{{ url('advertiser/campaign') }}">
+    <form method="post" action="{{ url('advertiser/campaign') }}">
         @csrf
     <div class="flex">
         <div class="flex-1">
@@ -37,14 +36,14 @@
                         <!-- Campaign form -->
                         <div class="mb-6">
                             <label for="campaign-name" class="block text-sm font-medium text-gray-500">Campaign Name *</label>
-                            <input type="text" id="campaign-name" class="mt-1 block w-full border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" placeholder="Start typing...">
+                            <input name="name" type="text" id="campaign-name" class="mt-1 block w-full border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" placeholder="Start typing...">
                             <span class="font-medium text-gray-400"> We recommend: Product - Feed - Country. For example: Offer - Main - WWW.</span>
                         </div>
 
                         <div class="grid grid-cols-1 gap-6">
                             <div class="block">
                                 <label for="ad-format" class="block text-sm font-medium text-gray-500">Ad Format *</label>
-                                <select id="ad-format" class="mt-1 block py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                <select name="format" id="ad-format" class="mt-1 block py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                                     <option>Banner</option>
                                     <option>Push Notifications</option>
                                     <option>OnClick</option>
@@ -55,7 +54,7 @@
                             </div>
                             <div class="block">
                                 <label for="ad-format" class="block text-sm font-medium text-gray-500">Size *</label>
-                                <select id="ad-format" class="mt-1 block py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                <select name="size" id="ad-format" class="mt-1 block py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                                     <option>300*250</option>
                                     <option>300*100</option>
                                 </select>
@@ -64,22 +63,22 @@
                                 <label class="block text-sm font-medium text-gray-500">Feed *</label>
                                 <div class="mt-2">
                                     <label class="inline-flex items-center">
-                                    <input type="radio" class="form-radio" name="feed" value="main">
+                                    <input name="feed" type="radio" class="form-radio" name="feed" value="main">
                                     <span class="ml-2">Main</span>
                                     </label>
                                     <label class="inline-flex items-center ml-6">
-                                    <input type="radio" class="form-radio" name="feed" value="adult">
+                                    <input name="feed" type="radio" class="form-radio" name="feed" value="adult">
                                     <span class="ml-2">Adult</span>
                                     </label>
                                     <label class="inline-flex items-center ml-6">
-                                    <input type="radio" class="form-radio" name="feed" value="all">
+                                    <input name="feed" type="radio" class="form-radio" name="feed" value="all">
                                     <span class="ml-2">All</span>
                                     </label>
                                 </div>
                             </div>
                             <div class="block">
                                 <label for="vertical" class="block text-sm font-medium text-gray-500">Vertical</label>
-                                <select id="vertical" class="mt-1 block py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                <select name="vertical" id="vertical" class="mt-1 block py-2 px-3 border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                                     <option>Default</option>
                                     <option>Apk</option>
                                     <option>Betting</option>
